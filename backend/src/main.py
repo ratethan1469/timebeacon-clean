@@ -204,7 +204,5 @@ def create_time_entry(event, integration):
 
 @app.route('/')
 def serve_index():
-    return send_from_directory('../', 'index.html')
-
-if __name__ == '__main__':
-    app.run(debug=True, host='127.0.0.1', port=5000)
+    root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../'))
+    return send_from_directory(root_dir, 'index.html')
