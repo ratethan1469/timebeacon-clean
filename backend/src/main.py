@@ -1,5 +1,5 @@
 from __future__ import print_function
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, send_from_directory
 from flask_cors import CORS
 import datetime
 import os.path
@@ -201,6 +201,10 @@ def create_time_entry(event, integration):
     else:
         print(f"[SIMULATION] Creating time entry for '{event.get('summary')}' in {integration}")
     return True
+
+@app.route('/')
+def serve_index():
+    return send_from_directory('../', 'index.html')
 
 if __name__ == '__main__':
     app.run(debug=True, host='127.0.0.1', port=5000)
