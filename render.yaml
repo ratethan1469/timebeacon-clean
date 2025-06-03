@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: timebeacon
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn backend.src.main:app
