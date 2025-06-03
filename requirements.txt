@@ -7,3 +7,9 @@ requests
 gunicorn
 pytz
 requests
+gunicorn
+python-dotenv
+pandas
+numpy
+scikit-learn
+scipy
