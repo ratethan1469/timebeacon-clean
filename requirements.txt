@@ -6,8 +6,6 @@ google-auth-oauthlib
 requests
 gunicorn
 pytz
-requests
-gunicorn
 python-dotenv
 pandas
 numpy
