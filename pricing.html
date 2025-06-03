@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing – AutoTime AI</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 80px 20px 40px 20px;
+      text-align: center;
+      font-family: inherit;
+      color: inherit;
+    }
+    .pricing-table {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 32px;
+      margin-top: 40px;
+    }
+    /* Light mode (default) */
+    .pricing-plan {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+      padding: 36px 32px 32px 32px;
+      min-width: 260px;
+      max-width: 320px;
+      flex: 1 1 260px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #222;
+      transition: background 0.3s, color 0.3s;
+    }
+    .pricing-plan h2,
+    .price {
+      color: #2a5cff !important; /* Always blue */
+    }
+    .price {
+      font-size: 2.2em;
+      font-weight: 700;
+      margin-bottom: 18px;
+      color: #2a5cff !important; /* Always blue */
+      transition: color 0.3s;
+    }
+    .price span {
+      font-size: 0.5em;
+      color: #888;
+      font-weight: 400;
+    }
+    .plan-features {
+      margin-bottom: 28px;
+      text-align: center;
+    }
+    .plan-features p {
+      margin: 10px 0;
+      font-weight: bold;
+      font-size: 1.08em;
+      color: #222;
+      letter-spacing: 0.1px;
+      transition: color 0.3s;
+    }
+    .pricing-plan button {
+      background: #2a5cff;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 12px 28px;
+      font-size: 1em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .pricing-plan button:hover {
+      background: #183b99;
+    }
+    /* DARK MODE */
+    body.dark-mode .pricing-plan {
+      background: #181c24;
+      color: #183b99;
+    }
+    body.dark-mode .plan-features p {
+      color:#183b99;
+    }
+    /* Do NOT override .pricing-plan h2 or .price in dark mode */
+    @media (max-width: 900px) {
+      .pricing-table {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-section nav-left">
+       <a href="index.html" class="logo-link">
+        <img src="assets/logo.png" alt="TimeBeacon Logo" class="logo-img">
+      </a>
+      <div class="nav-dropdown-wrapper">
+        <span class="nav-link" tabindex="0">Solutions</span>
+        <ul class="nav-dropdown">
+          <li><a href="#">For Consultants</a></li>
+          <li><a href="#">For Customer Success</a></li>
+          <li><a href="#">For Agencies</a></li>
+          <li><a href="#">For Legal Teams</a></li>
+        </ul>
+      </div>
+      <div class="nav-dropdown-wrapper">
+        <span class="nav-link" tabindex="0">Resources</span>
+        <ul class="nav-dropdown">
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="guides.html">Guides</a></li>
+          <li><a href="#">Webinars</a></li>
+          <li><a href="help.html">Help Center</a></li>
+        </ul>
+      </div>
+      <div class="nav-dropdown-wrapper">
+        <span class="nav-link" tabindex="0">Features</span>
+        <ul class="nav-dropdown">
+          <li><a href="integrations.html">Seamless Integrations</a></li>
+          <li><a href="autosubmit.html">Auto Submissions</a></li>
+          <li><a href="aisummaries.html">AI Summaries</a></li>
+          <li><a href="ownership.html">Employee-Owned Data</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="nav-section nav-center">
+      <a href="pricing.html" class="pricing-box">Pricing Options</a>
+    </div>
+    <div class="nav-section nav-right">
+      <select class="language-select" aria-label="Language">
+        <option>EN</option>
+        <option>ES</option>
+        <option>FR</option>
+        <option>DE</option>
+      </select>
+      <button id="darkModeToggle" aria-label="Toggle dark mode">🌓</button>
+      <div class="profile-dropdown-wrapper">
+        <span class="profile-icon" id="profileIcon" role="img" aria-label="Profile" tabindex="0">🧑‍💻</span>
+        <ul class="profile-dropdown" id="profileDropdown">
+          <li><a href="timehub.html">Account</a></li>
+          <li><a href="permissions.html">Permissions</a></li>
+          <li><a href="settings.html">Settings</a></li>
+          <li><a href="connections.html">Connections</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <main class="content">
+    <h1>Pricing Options</h1>
+    <section class="pricing-table">
+      <div class="pricing-plan">
+        <h2>Starter</h2>
+        <div class="price">$0<span>/mo</span></div>
+        <div class="plan-features">
+          <p>Basic time tracking</p>
+          <p>Email support</p>
+          <p>1 integration</p>
+        </div>
+        <button>Get Started</button>
+      </div>
+      <div class="pricing-plan">
+        <h2>Pro</h2>
+        <div class="price">$12<span>/mo</span></div>
+        <div class="plan-features">
+          <p>All Starter features</p>
+          <p>Unlimited integrations</p>
+          <p>AI summaries</p>
+          <p>Priority support</p>
+        </div>
+        <button>Start Free Trial</button>
+      </div>
+      <div class="pricing-plan">
+        <h2>Enterprise</h2>
+        <div class="price">Contact Us</div>
+        <div class="plan-features">
+          <p>All Pro features</p>
+          <p>Custom integrations</p>
+          <p>Dedicated account manager</p>
+          <p>Advanced permissions</p>
+        </div>
+        <button>Contact Sales</button>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

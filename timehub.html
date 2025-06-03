@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Time Hub – AutoTime AI</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="main-header">
+    <a href="https://timebeacon.io" class="logo-link">
+      <img src="assets/timebeacon-logo.jpg" alt="TimeBeacon Logo" class="logo-img">
+    </a>
+  </header>
+  <nav class="navbar">
+    <div class="nav-section nav-left">
+        <a href="index.html" class="logo-link">
+        <img src="assets/logo.png" alt="TimeBeacon Logo" class="logo-img">
+      </a>
+      <div class="nav-dropdown-wrapper">
+        <span class="nav-link" tabindex="0">Solutions</span>
+        <ul class="nav-dropdown">
+          <li><a href="#">For Consultants</a></li>
+          <li><a href="#">For Customer Success</a></li>
+          <li><a href="#">For Agencies</a></li>
+          <li><a href="#">For Legal Teams</a></li>
+        </ul>
+      </div>
+      <div class="nav-dropdown-wrapper">
+        <span class="nav-link" tabindex="0">Resources</span>
+        <ul class="nav-dropdown">
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="guides.html">Guides</a></li>
+          <li><a href="#">Webinars</a></li>
+          <li><a href="help.html">Help Center</a></li>
+        </ul>
+      </div>
+      <div class="nav-dropdown-wrapper">
+        <span class="nav-link" tabindex="0">Features</span>
+        <ul class="nav-dropdown">
+          <li><a href="integrations.html">Seamless Integrations</a></li>
+          <li><a href="autosubmit.html">Auto Submissions</a></li>
+          <li><a href="aisummaries.html">AI Summaries</a></li>
+          <li><a href="ownership.html">Employee-Owned Data</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="nav-section nav-center">
+      <a href="pricing.html" class="pricing-box">Pricing Options</a>
+    </div>
+    <div class="nav-section nav-right">
+      <select class="language-select" aria-label="Language">
+        <option>EN</option>
+        <option>ES</option>
+        <option>FR</option>
+        <option>DE</option>
+      </select>
+      <button id="darkModeToggle" aria-label="Toggle dark mode">🌓</button>
+      <div class="profile-dropdown-wrapper">
+        <span class="profile-icon" id="profileIcon" role="img" aria-label="Profile" tabindex="0">🧑‍💻</span>
+        <ul class="profile-dropdown" id="profileDropdown">
+          <li><a href="timehub.html">Time Hub</a></li>
+          <li><a href="permissions.html">Permissions</a></li>
+          <li><a href="settings.html">Settings</a></li>
+          <li><a href="connections.html">Connections</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <main class="content">
+    <h1>Time Hub</h1>
+
+    <section id="integration-status">
+      <h2>Google Calendar Integration</h2>
+      <p id="calendar-status">Checking connection...</p>
+      <button id="toggle-calendar-btn">Connect</button>
+    </section>
+
+    <section id="calendar-events">
+      <h2>Your Upcoming Google Calendar Events</h2>
+      <div id="calendar-controls" style="text-align:center; margin-bottom: 10px;">
+        <button id="prev-month" aria-label="Previous Month">&lt;</button>
+        <span id="calendar-month-label" style="font-weight:700; font-size:1.2em; margin:0 12px;"></span>
+        <button id="next-month" aria-label="Next Month">&gt;</button>
+      </div>
+      <ul id="events-list"></ul>
+    </section>
+
+    <section id="recurring-events">
+      <h2>Recurring Time Inputs</h2>
+      <table id="recurring-events-table" class="recurring-table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Classification</th>
+      <th>Cadence</th>
+      <th>Start</th>
+      <th>Location</th>
+      <th>Wrike</th>
+      <th>Workday</th>
+    </tr>
+  </thead>
+  <tbody id="recurring-events-list"></tbody>
+</table>
+    </section>
+
+    <div id="toast" class="toast"></div>
+
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

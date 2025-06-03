@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AutoTime AI - Privacy Pledge</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="nav-left">
+      <div class="hamburger" onclick="toggleMenu()">☰</div>
+    </div>
+    <div class="nav-right">
+      <button id="darkModeToggle">🌓</button>
+      <img src="profile-icon.png" alt="Profile" class="profile-icon" />
+    </div>
+    <nav id="navMenu" class="hidden">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="timer.html">Timer</a></li>
+        <li><a href="tasks.html">Task History</a></li>
+        <li><a href="privacy.html">Privacy Pledge</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Our Privacy Pledge</h1>
+    <p>AutoTime AI does not track your every move. Your data is stored locally, not in the cloud, and is never shared with third parties. You have full control over what’s logged and saved.</p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AutoTime AI</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-left">
+      <button class="hamburger" id="hamburger">&#9776;</button>
+    </div>
+    <div class="nav-center">
+       <a href="index.html" class="logo-link">
+        <img src="assets/logo.png" alt="TimeBeacon Logo" class="logo-img">
+      </a>
+    </div>
+    <div class="nav-right">
+      <button id="darkModeToggle">🌙</button>
+      <img src="profile-icon.png" alt="Profile" class="profile-icon" />
+    </div>
+  </header>
+
+  <nav id="sidebar" class="sidebar hidden">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="tasks.html">Tasks</a></li>
+      <li><a href="history.html">Task History</a></li>
+      <li><a href="privacy.html">Privacy Pledge</a></li>
+    </ul>
+  </nav>
+
+  <main class="content">
+    <h1>Simple Time Tracker</h1>
+    <div id="timer">00:00:00</div>
+    <div class="button-row">
+      <button id="startBtn">Start</button>
+      <button id="stopBtn" disabled>Stop</button>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guides – AutoTime AI</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 80px 20px 40px 20px;
+      text-align: center;
+    }
+    .guides-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 32px;
+      margin-top: 40px;
+    }
+    /* Light mode (default) */
+    .guide-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+      padding: 32px 28px 28px 28px;
+      min-width: 260px;
+      max-width: 320px;
+      flex: 1 1 260px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #222;
+      transition: background 0.3s, color 0.3s;
+      text-align: left;
+    }
+    .guide-card h2 {
+      color: #2a5cff !important;
+      font-size: 1.3em;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    .guide-card p {
+      color: #222;
+      margin-bottom: 18px;
+      font-size: 1em;
+    }
+    .guide-card a {
+      color: #2a5cff;
+      font-weight: bold;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .guide-card a:hover {
+      color: #183b99;
+      text-decoration: underline;
+    }
+    /* Dark mode */
+    body.dark-mode .guide-card {
+      background: #181c24;
+      color: #fff;
+    }
+    body.dark-mode .guide-card h2 {
+      color: #2a5cff !important;
+    }
+    body.dark-mode .guide-card p {
+      color: #fff;
+    }
+    body.dark-mode .guide-card a {
+      color: #2a5cff;
+    }
+    @media (max-width: 900px) {
+      .guides-list {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-section nav-left">
+       <a href="index.html" class="logo-link">
+        <img src="assets/logo.png" alt="TimeBeacon Logo" class="logo-img">
+      </a>
+      <div class="nav-dropdown-wrapper">
+        <span class="nav-link" tabindex="0">Solutions</span>
+        <ul class="nav-dropdown">
+          <li><a href="#">For Consultants</a></li>
+          <li><a href="#">For Customer Success</a></li>
+          <li><a href="#">For Agencies</a></li>
+          <li><a href="#">For Legal Teams</a></li>
+        </ul>
+      </div>
+      <div class="nav-dropdown-wrapper">
+        <span class="nav-link" tabindex="0">Resources</span>
+        <ul class="nav-dropdown">
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="guides.html">Guides</a></li>
+          <li><a href="#">Webinars</a></li>
+          <li><a href="help.html">Help Center</a></li>
+        </ul>
+      </div>
+      <div class="nav-dropdown-wrapper">
+        <span class="nav-link" tabindex="0">Features</span>
+        <ul class="nav-dropdown">
+          <li><a href="integrations.html">Seamless Integrations</a></li>
+          <li><a href="autosubmit.html">Auto Submissions</a></li>
+          <li><a href="aisummaries.html">AI Summaries</a></li>
+          <li><a href="ownership.html">Employee-Owned Data</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="nav-section nav-center">
+      <a href="pricing.html" class="pricing-box">Pricing Options</a>
+    </div>
+    <div class="nav-section nav-right">
+      <select class="language-select" aria-label="Language">
+        <option>EN</option>
+        <option>ES</option>
+        <option>FR</option>
+        <option>DE</option>
+      </select>
+      <button id="darkModeToggle" aria-label="Toggle dark mode">🌓</button>
+      <div class="profile-dropdown-wrapper">
+        <span class="profile-icon" id="profileIcon" role="img" aria-label="Profile" tabindex="0">🧑‍💻</span>
+        <ul class="profile-dropdown" id="profileDropdown">
+          <li><a href="timehub.html">Time Hub</a></li>
+          <li><a href="permissions.html">Permissions</a></li>
+          <li><a href="settings.html">Settings</a></li>
+          <li><a href="connections.html">Connections</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <main class="content">
+    <h1>Guides</h1>
+    <section class="guides-list">
+      <article class="guide-card">
+        <h2>Getting Started with AutoTime AI</h2>
+        <p>Learn how to set up your account, connect integrations, and start tracking time automatically.</p>
+        <a href="#" class="read-guide-btn">Read Guide</a>
+      </article>
+      <article class="guide-card">
+        <h2>Integrating with Your Favorite Tools</h2>
+        <p>Step-by-step instructions for connecting AutoTime AI with Slack, Google Calendar, and more.</p>
+        <a href="#" class="read-guide-btn">Read Guide</a>
+      </article>
+      <article class="guide-card">
+        <h2>Best Practices for Accurate Time Tracking</h2>
+        <p>Tips and tricks to ensure your time tracking is seamless, accurate, and stress-free.</p>
+        <a href="#" class="read-guide-btn">Read Guide</a>
+      </article>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
