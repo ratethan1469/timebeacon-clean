@@ -9,7 +9,9 @@
 <body>
   <nav class="navbar">
     <div class="nav-section nav-left">
-      <a href="index.html" class="logo">AutoTime AI</a>
+      <a href="index.html" class="logo">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="TimeBeacon Logo" class="logo-img">
+      </a>
       <div class="nav-dropdown-wrapper">
         <span class="nav-link" tabindex="0">Solutions</span>
         <ul class="nav-dropdown">
