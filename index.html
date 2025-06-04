@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Time Beacon – AI-Powered Time Tracking for Professionals</title>
-  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
   <nav class="navbar">
@@ -117,7 +117,7 @@
       <p class="privacy-note">No surveillance. No surprises. Just your time, your way.</p>
     </section>
   </main>
-  <script src="/static/script.js"></script>
-  <script src="/static/toggle-theme.js"></script>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+  <script src="{{ url_for('static', filename='toggle-theme.js') }}"></script>
 </body>
 </html>
