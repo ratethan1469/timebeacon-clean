@@ -1,5 +1,5 @@
 from __future__ import print_function
-from flask import Flask, jsonify, request, send_from_directory
+from flask import Flask, jsonify, request, send_from_directory, render_template
 from flask_cors import CORS
 import datetime
 import os.path
@@ -206,3 +206,7 @@ def create_time_entry(event, integration):
 def serve_index():
     root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../'))
     return send_from_directory(root_dir, 'index.html')
+
+@app.route('/timehub')
+def timehub():
+    return render_template('timehub.html')
