@@ -1,3 +1,9 @@
+from flask import render_template
+
+@app.route('/')
+def serve_index():
+    return render_template('index.html')
+
 // Get DOM elements
 const hamburger = document.getElementById('hamburger');
 const sidebar = document.querySelector('.sidebar');
