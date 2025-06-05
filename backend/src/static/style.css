@@ -1296,3 +1296,7 @@ body.dark .recurring-table td {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+.profile-dropdown { display: none; }
+.profile-dropdown.active { display: block; }
+body.dark-mode { background: #181c24; color: #fff; }

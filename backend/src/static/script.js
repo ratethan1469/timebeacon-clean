@@ -21,27 +21,6 @@ if (hamburger && sidebar) {
   });
 }
 
-// Dark mode toggle
-const darkModeToggle = document.getElementById('darkModeToggle');
-if (darkModeToggle) {
-  darkModeToggle.addEventListener('click', function() {
-    document.body.classList.toggle('dark');
-    // Optionally, save preference to localStorage:
-    if(document.body.classList.contains('dark')) {
-      localStorage.setItem('theme', 'dark');
-    } else {
-      localStorage.setItem('theme', 'light');
-    }
-  });
-
-  // On page load, set theme from localStorage
-  window.addEventListener('DOMContentLoaded', function() {
-    if (localStorage.getItem('theme') === 'dark') {
-      document.body.classList.add('dark');
-    }
-  });
-}
-
 // Profile dropdown
 if (profileIcon && profileDropdownWrapper) {
   profileIcon.addEventListener('click', function(e) {
@@ -402,3 +381,30 @@ function formatTime12hr(hour, minute) {
 }// Add any additional JavaScript functionality here
 
   // ...all your other logic (calendar, nav, etc)...;
+
+document.addEventListener('DOMContentLoaded', function() {
+  // DARK MODE
+  const darkModeToggle = document.getElementById('darkModeToggle');
+  if (darkModeToggle) {
+    darkModeToggle.onclick = function() {
+      document.body.classList.toggle('dark-mode');
+      localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    };
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('dark-mode');
+    }
+  }
+
+  // PROFILE DROPDOWN
+  const profileIcon = document.getElementById('profileIcon');
+  const profileDropdown = document.getElementById('profileDropdown');
+  if (profileIcon && profileDropdown) {
+    profileIcon.onclick = function(e) {
+      e.stopPropagation();
+      profileDropdown.classList.toggle('active');
+    };
+    document.addEventListener('click', function() {
+      profileDropdown.classList.remove('active');
+    });
+  }
+});
