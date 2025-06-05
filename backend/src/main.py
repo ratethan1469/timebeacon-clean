@@ -1,5 +1,5 @@
 from __future__ import print_function
-from flask import Flask, jsonify, request, send_from_directory, render_template
+from flask import Flask, jsonify, request, send_from_directory, render_template, session
 from flask_cors import CORS
 import datetime
 import os.path
@@ -51,7 +51,10 @@ def get_calendar_service():
     return service
 
 @app.route('/events')
-def get_events():
+def events():
+    # Example: check if user is connected
+    if 'credentials' not in session:
+        return jsonify({'events': []})  # or return a 401 error
     service = get_calendar_service()
     # Get year and month from query params, default to current
     year = request.args.get('year', type=int)
