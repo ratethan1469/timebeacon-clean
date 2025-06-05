@@ -10,6 +10,8 @@ import pickle
 import requests
 import os
 
+app = Flask(__name__, static_folder='static', template_folder='templates')
+
 def classify_meeting(event):
     summary = (event.get('summary') or '').lower()
     description = (event.get('description') or '').lower()
@@ -21,7 +23,6 @@ def classify_meeting(event):
         return 'Team Meeting'
     return 'Other'
 
-app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 
 # If modifying these scopes, delete the file token.pickle.
