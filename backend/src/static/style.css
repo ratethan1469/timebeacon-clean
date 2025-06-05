@@ -434,69 +434,30 @@ body.dark .ai-summary p {
 /* PROFILE DROPDOWN */
 .profile-dropdown-wrapper {
   position: relative;
-  display: flex;
-  align-items: center;
+  display: inline-block;
 }
 
 .profile-dropdown {
   display: none;
   position: absolute;
-  top: 110%;
   right: 0;
+  top: 100%;
+  min-width: 180px;
   background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.13);
-  min-width: 150px;
-  padding: 8px 0;
-  z-index: 2000;
+  color: #222;
   list-style: none;
   margin: 0;
-  border: 1px solid #eaf6ff;
+  padding: 0.5em 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  z-index: 100;
 }
-
-body.dark .profile-dropdown {
+.profile-dropdown.active {
+  display: block;
+}
+body.dark-mode .profile-dropdown {
   background: #23283a;
-  border: 1px solid #23283a;
-}
-
-.profile-dropdown li {
-  width: 100%;
-}
-
-.profile-dropdown a {
-  display: block;
-  padding: 10px 18px;
-  color: var(--color-primary);
-  text-decoration: none;
-  font-size: 1rem;
-  border-radius: 6px;
-  transition: background 0.2s, color 0.2s;
-}
-
-.profile-dropdown a:hover {
-  background: var(--color-sidebar-hover-light);
-  color: var(--color-accent);
-}
-body.dark .profile-dropdown a {
-  color: var(--color-accent);
-}
-
-/* Profile dropdown links white in dark mode */
-body.dark .profile-dropdown a,
-body.dark .profile-dropdown a:visited {
   color: #fff;
-}
-
-/* Profile dropdown links accent green on hover/focus in dark mode */
-body.dark .profile-dropdown a:hover,
-body.dark .profile-dropdown a:focus {
-  color: #2edba7;
-  background: var(--color-sidebar-hover-dark);
-}
-
-/* Show dropdown when active */
-.profile-dropdown-wrapper.active .profile-dropdown {
-  display: block;
 }
 
 /* NAVBAR DROPDOWNS */
