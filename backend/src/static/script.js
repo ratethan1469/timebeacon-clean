@@ -37,7 +37,7 @@ if (darkModeToggle) {
   // On page load, set theme from localStorage
   window.addEventListener('DOMContentLoaded', function() {
     if (localStorage.getItem('theme') === 'dark') {
-      document.body.classList.add('dark-mode');
+      document.body.classList.add('dark');
     }
   });
 }
@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Calendar logic
   let calendarYear, calendarMonth;
   function fetchAndRenderCalendar(year, month) {
-    fetch(`/events?year=${year}&month=${month+1}`)
+    fetch(`http://127.0.0.1:5000/events?year=${year}&month=${month+1}`)
       .then(response => response.json())
       .then(data => {
         renderCalendar(data.events, year, month);
@@ -240,7 +240,7 @@ document.addEventListener('DOMContentLoaded', function() {
     localStorage.setItem(`integration_${eventId}_${integration}`, value ? 'true' : 'false');
   }
 
-  fetch('/recurring-events')
+  fetch('http://127.0.0.1:5000/recurring-events')
     .then(response => response.json())
     .then(data => {
       const recurringList = document.getElementById('recurring-events-list');
@@ -284,7 +284,7 @@ if (data.events.length === 0) {
 
 
 
-          fetch('/set-integration', {
+          fetch('http://127.0.0.1:5000/set-integration', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -299,7 +299,7 @@ if (data.events.length === 0) {
 
   // Google Calendar connection status
   function updateCalendarStatus() {
-    fetch('/status')
+    fetch('http://127.0.0.1:5000/status')
       .then(res => res.json())
       .then(data => {
         const status = document.getElementById('calendar-status');
@@ -308,7 +308,7 @@ if (data.events.length === 0) {
           status.textContent = "Connected to Google Calendar";
           btn.textContent = "Disconnect";
           btn.onclick = () => {
-            fetch('/disconnect', {method: 'POST'})
+            fetch('http://127.0.0.1:5000/disconnect', {method: 'POST'})
               .then(() => {
                 status.textContent = "Disconnected";
                 btn.textContent = "Connect";
@@ -319,7 +319,7 @@ if (data.events.length === 0) {
           status.textContent = "Not connected to Google Calendar";
           btn.textContent = "Connect";
           btn.onclick = () => {
-            fetch('/events')
+            fetch('http://127.0.0.1:5000/events')
               .then(() => window.location.reload());
           };
         }
