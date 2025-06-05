@@ -43,19 +43,19 @@
       font-weight: 700;
     }
     .guide-card p {
-      color: #7C3AED;
+      color: #fff; /* Make paragraph text white */
       margin-bottom: 18px;
       font-size: 1em;
     }
     .guide-card a {
-      color: #22D3A0;
+      color: #22D3A0; /* Brand green for links */
       font-weight: bold;
       text-decoration: none;
-      transition: color 0.2s;
+      transition: color 0.2s, background 0.2s;
     }
     .guide-card a:hover {
-      color: #7C3AED;
-      background: #22D3A0;
+      color: #fff; /* White on hover */
+      background: #22D3A0; /* Green background on hover */
       border-radius: 6px;
       padding: 2px 8px;
       text-decoration: underline;
@@ -69,7 +69,7 @@
       color: #22D3A0 !important;
     }
     body.dark-mode .guide-card p {
-      color: #7C3AED;
+      color: #fff;
     }
     body.dark-mode .guide-card a {
       color: #22D3A0;
