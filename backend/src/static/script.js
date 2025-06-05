@@ -400,3 +400,16 @@ function formatTime12hr(hour, minute) {
   if (h === 0) h = 12;
   return `${h}:${minute.toString().padStart(2, '0')}${ampm}`;
 }// Add any additional JavaScript functionality here
+document.addEventListener('DOMContentLoaded', function() {
+  const profileIcon = document.getElementById('profileIcon');
+  const profileDropdown = document.getElementById('profileDropdown');
+  if (profileIcon && profileDropdown) {
+    profileIcon.onclick = function(e) {
+      e.stopPropagation();
+      profileDropdown.classList.toggle('active');
+    };
+    document.addEventListener('click', function() {
+      profileDropdown.classList.remove('active');
+    });
+  }
+});
