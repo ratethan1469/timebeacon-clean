@@ -1,5 +1,5 @@
 from __future__ import print_function
-from flask import Flask, jsonify, request, send_from_directory, render_template, session
+from flask import Flask, jsonify, request, send_from_directory, render_template
 from flask_cors import CORS
 import datetime
 import os.path
@@ -9,8 +9,6 @@ from google.auth.transport.requests import Request
 import pickle
 import requests
 import os
-
-app = Flask(__name__, static_folder='static', template_folder='templates')
 
 def classify_meeting(event):
     summary = (event.get('summary') or '').lower()
@@ -23,6 +21,7 @@ def classify_meeting(event):
         return 'Team Meeting'
     return 'Other'
 
+app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 
 # If modifying these scopes, delete the file token.pickle.
@@ -51,10 +50,7 @@ def get_calendar_service():
     return service
 
 @app.route('/events')
-def events():
-    # Example: check if user is connected
-    if 'credentials' not in session:
-        return jsonify({'events': []})  # or return a 401 error
+def get_events():
     service = get_calendar_service()
     # Get year and month from query params, default to current
     year = request.args.get('year', type=int)
@@ -127,12 +123,9 @@ def get_recurring_events():
     return jsonify(events=recurring)
 
 @app.route('/status')
-def google_status():
-    # Example: check if user is connected to Google Calendar
-    connected = False
-    # Your logic here to check connection status, e.g.:
-    # connected = 'credentials' in session
-    return {'connected': connected}
+def status():
+    connected = os.path.exists('../token.pickle')
+    return jsonify({'connected': connected})
 
 @app.route('/disconnect', methods=['POST'])
 def disconnect():
