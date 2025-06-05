@@ -400,32 +400,5 @@ function formatTime12hr(hour, minute) {
   if (h === 0) h = 12;
   return `${h}:${minute.toString().padStart(2, '0')}${ampm}`;
 }// Add any additional JavaScript functionality here
-document.addEventListener('DOMContentLoaded', function() {
-  // DARK MODE
-  const darkModeToggle = document.getElementById('darkModeToggle');
-  if (darkModeToggle) {
-    darkModeToggle.onclick = function() {
-      document.body.classList.toggle('dark-mode');
-      localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
-    };
-    // On page load, set theme from localStorage
-    if (localStorage.getItem('theme') === 'dark') {
-      document.body.classList.add('dark-mode');
-    }
-  }
 
-  // PROFILE DROPDOWN
-  const profileIcon = document.getElementById('profileIcon');
-  const profileDropdown = document.getElementById('profileDropdown');
-  if (profileIcon && profileDropdown) {
-    profileIcon.onclick = function(e) {
-      e.stopPropagation();
-      profileDropdown.classList.toggle('active');
-    };
-    document.addEventListener('click', function() {
-      profileDropdown.classList.remove('active');
-    });
-  }
-
-  // ...all your other logic (calendar, nav, etc)...
-});
+  // ...all your other logic (calendar, nav, etc)...;
