@@ -399,4 +399,4 @@ function formatTime12hr(hour, minute) {
   let h = hour % 12;
   if (h === 0) h = 12;
   return `${h}:${minute.toString().padStart(2, '0')}${ampm}`;
-}// Add any additional JavaScript functionality here 
+}// Add any additional JavaScript functionality here
