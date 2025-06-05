@@ -400,3 +400,10 @@ function formatTime12hr(hour, minute) {
   if (h === 0) h = 12;
   return `${h}:${minute.toString().padStart(2, '0')}${ampm}`;
 }
+
+<><button id="auto-submit-btn">Auto Submit Recurring Events</button><script>
+  document.getElementById('auto-submit-btn').onclick = function() {fetch('/auto-submit', { method: 'POST' })
+    .then(res => res.json())
+    .then(data => alert('Submitted: ' + JSON.stringify(data.submitted)))};
+  };
+</script></>

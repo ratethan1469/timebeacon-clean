@@ -213,3 +213,44 @@ def timehub():
 @app.route('/guides')
 def guides():
     return render_template('guides.html')
+@app.route('/auto-submit', methods=['POST'])
+def auto_submit():
+    service = get_calendar_service()
+    now = datetime.datetime.utcnow().isoformat() + 'Z'
+    events_result = service.events().list(
+        calendarId='primary', timeMin=now,
+        maxResults=50, singleEvents=False,
+    ).execute()
+    events = events_result.get('items', [])
+    submitted = []
+    for event in events:
+        if 'recurrence' in event:
+            duration = 60  # Default to 60 minutes, or calculate from event['start'] and event['end']
+            description = generate_description(event)
+            classification = classify_meeting(event)
+            # Choose integration based on classification or user preference
+            integration = 'wrike'  # or 'workday'
+            # Submit to integration
+            create_time_entry_ai(event, integration, duration, description)
+            submitted.append({'summary': event.get('summary'), 'integration': integration})
+    return jsonify({'submitted': submitted})
+
+def generate_description(event):
+    # Simple rule-based, or call an AI API here
+    summary = event.get('summary', '')
+    if 'standup' in summary.lower():
+        return "Daily team standup meeting."
+    if 'client' in summary.lower():
+        return "Client-facing meeting to discuss project updates."
+    # ...more rules...
+    return f"Meeting: {summary}"
+
+def create_time_entry_ai(event, integration, duration, description):
+    if integration == 'wrike':
+        # ...use your existing Wrike API code...
+        pass
+    elif integration == 'workday':
+        # ...add Workday API integration here...
+        pass
+    else:
+        print(f"Unknown integration: {integration}")
