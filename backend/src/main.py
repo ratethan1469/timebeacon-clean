@@ -29,6 +29,20 @@ SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
 
 TOKEN_PATH = os.path.expanduser('~/.autotime_token.pickle')
 
+@app.route('/status')
+def status():
+    connected = os.path.exists(TOKEN_PATH)
+    return jsonify({'connected': connected})
+
+@app.route('/disconnect', methods=['POST'])
+def disconnect():
+    try:
+        if os.path.exists(TOKEN_PATH):
+            os.remove(TOKEN_PATH)
+        return jsonify({'success': True})
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
+
 def get_calendar_service():
     creds = None
     # The file token.pickle stores the user's access and refresh tokens.
@@ -121,20 +135,6 @@ def get_recurring_events():
                 'classification': classify_meeting(event)
             })
     return jsonify(events=recurring)
-
-@app.route('/status')
-def status():
-    connected = os.path.exists('../token.pickle')
-    return jsonify({'connected': connected})
-
-@app.route('/disconnect', methods=['POST'])
-def disconnect():
-    try:
-        if os.path.exists('../token.pickle'):
-            os.remove('../token.pickle')
-        return jsonify({'success': True})
-    except Exception as e:
-        return jsonify({'success': False, 'error': str(e)}), 500
 
 @app.route('/create-event', methods=['POST'])
 def create_event():
