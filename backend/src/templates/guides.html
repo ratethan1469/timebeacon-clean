@@ -32,7 +32,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      color: #222 !important;              /* Dark text for readability */
+      color: #fff !important; /* Make all text inside white by default */
       transition: background 0.3s, color 0.3s;
       text-align: left;
       border: 1.5px solid #F3F4F6;
@@ -48,17 +48,22 @@
       margin-bottom: 18px;
       font-size: 1em;
     }
-    .guide-card a {
-      color: #fff !important;           /* Brand green for links */
+    .guide-card a,
+    .guide-card .read-guide-btn {
+      color: #fff !important;           /* White button/link text */
+      background: #22D3A0 !important; /* Optional: add a green background for buttons */
       font-weight: bold;
       text-decoration: none;
-      transition: color 0.2s, background 0.2s;
-    }
-    .guide-card a:hover {
-      color: #fff !important;
-      background: #22D3A0 !important;
       border-radius: 6px;
-      padding: 2px 8px;
+      padding: 8px 18px;
+      margin-top: 10px;
+      display: inline-block;
+      transition: background 0.2s, color 0.2s;
+    }
+    .guide-card a:hover,
+    .guide-card .read-guide-btn:hover {
+      background: #7C3AED !important; /* Optional: purple on hover */
+      color: #fff !important;
       text-decoration: underline;
     }
     /* Dark mode */
