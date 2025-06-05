@@ -210,3 +210,6 @@ def serve_index():
 @app.route('/timehub')
 def timehub():
     return render_template('timehub.html')
+@app.route('/guides')
+def timehub():
+    return render_template('guides.html')
