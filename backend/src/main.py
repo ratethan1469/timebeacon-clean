@@ -124,9 +124,12 @@ def get_recurring_events():
     return jsonify(events=recurring)
 
 @app.route('/status')
-def status():
-    connected = os.path.exists('../token.pickle')
-    return jsonify({'connected': connected})
+def google_status():
+    # Example: check if user is connected to Google Calendar
+    connected = False
+    # Your logic here to check connection status, e.g.:
+    # connected = 'credentials' in session
+    return {'connected': connected}
 
 @app.route('/disconnect', methods=['POST'])
 def disconnect():
