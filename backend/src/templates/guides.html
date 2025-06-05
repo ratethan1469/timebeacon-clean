@@ -22,7 +22,7 @@
     }
     /* Light mode (default) */
     .guide-card {
-      background: #7C3AED; /* Brand purple */
+      background: rgba(24,28,35,0.99) !important;         /* White background */
       border-radius: 12px;
       box-shadow: 0 4px 24px rgba(0,0,0,0.07);
       padding: 32px 28px 28px 28px;
@@ -32,47 +32,49 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      color: #fff;
+      color: #222 !important;              /* Dark text for readability */
       transition: background 0.3s, color 0.3s;
       text-align: left;
+      border: 1.5px solid #F3F4F6;
     }
     .guide-card h2 {
-      color: #22D3A0 !important; /* Brand green */
+      color: #7C3AED !important;           /* Brand purple for headings */
       font-size: 1.3em;
       margin-bottom: 10px;
       font-weight: 700;
     }
     .guide-card p {
-      color: #fff; /* Make paragraph text white */
+      color: #222 !important;              /* Dark text for body */
       margin-bottom: 18px;
       font-size: 1em;
     }
     .guide-card a {
-      color: #22D3A0; /* Brand green for links */
+      color: #22D3A0 !important;           /* Brand green for links */
       font-weight: bold;
       text-decoration: none;
       transition: color 0.2s, background 0.2s;
     }
     .guide-card a:hover {
-      color: #fff; /* White on hover */
-      background: #22D3A0; /* Green background on hover */
+      color: #fff !important;
+      background: #22D3A0 !important;
       border-radius: 6px;
       padding: 2px 8px;
       text-decoration: underline;
     }
     /* Dark mode */
     body.dark-mode .guide-card {
-      background: #181c24;
-      color: #22D3A0;
+      background: rgba(24,28,35,0.99)4 !important;
+      color: #fff !important;
+      border: 1.5px solid #22223B;
     }
     body.dark-mode .guide-card h2 {
-      color: #22D3A0 !important;
+      color: #fff !important;
     }
     body.dark-mode .guide-card p {
-      color: #fff;
+      color: #fff !important;
     }
     body.dark-mode .guide-card a {
-      color: #22D3A0;
+      color: #fff !important;
     }
     @media (max-width: 900px) {
       .guides-list {
