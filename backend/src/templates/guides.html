@@ -22,7 +22,7 @@
     }
     /* Light mode (default) */
     .guide-card {
-      background: #fff;
+      background: #7C3AED; /* Brand purple */
       border-radius: 12px;
       box-shadow: 0 4px 24px rgba(0,0,0,0.07);
       padding: 32px 28px 28px 28px;
@@ -32,44 +32,47 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      color: #222;
+      color: #fff;
       transition: background 0.3s, color 0.3s;
       text-align: left;
     }
     .guide-card h2 {
-      color: #2a5cff !important;
+      color: #22D3A0 !important; /* Brand green */
       font-size: 1.3em;
       margin-bottom: 10px;
       font-weight: 700;
     }
     .guide-card p {
-      color: #222;
+      color: #fff;
       margin-bottom: 18px;
       font-size: 1em;
     }
     .guide-card a {
-      color: #2a5cff;
+      color: #22D3A0;
       font-weight: bold;
       text-decoration: none;
       transition: color 0.2s;
     }
     .guide-card a:hover {
-      color: #183b99;
+      color: #fff;
+      background: #22D3A0;
+      border-radius: 6px;
+      padding: 2px 8px;
       text-decoration: underline;
     }
     /* Dark mode */
     body.dark-mode .guide-card {
       background: #181c24;
-      color: #2a5cff;
+      color: #22D3A0;
     }
     body.dark-mode .guide-card h2 {
-      color: #2a5cff !important;
+      color: #22D3A0 !important;
     }
     body.dark-mode .guide-card p {
       color: #fff;
     }
     body.dark-mode .guide-card a {
-      color: #2a5cff;
+      color: #22D3A0;
     }
     @media (max-width: 900px) {
       .guides-list {
