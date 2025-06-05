@@ -204,7 +204,6 @@ def create_time_entry(event, integration):
 
 @app.route('/')
 def serve_index():
-    root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../'))
     return send_from_directory(root_dir, 'index.html')
 
 @app.route('/timehub')
