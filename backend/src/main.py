@@ -1,11 +1,11 @@
 from __future__ import print_function
-from flask import Flask, jsonify, request, send_from_directory, render_template, redirect, url_for
+from flask import Flask, jsonify, request, send_from_directory, render_template
 from flask_cors import CORS
-from google_auth_oauthlib.flow import Flow
-from googleapiclient.discovery import build
-from google.auth.transport.requests import Request
 import datetime
 import os.path
+from googleapiclient.discovery import build
+from google_auth_oauthlib.flow import InstalledAppFlow
+from google.auth.transport.requests import Request
 import pickle
 import requests
 import os
@@ -24,8 +24,9 @@ def classify_meeting(event):
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 
-GOOGLE_CLIENT_SECRETS_FILE = os.path.join(os.path.dirname(__file__), 'credentials.json')
+# If modifying these scopes, delete the file token.pickle.
 SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
+
 TOKEN_PATH = os.path.expanduser('~/.autotime_token.pickle')
 
 @app.route('/status')
@@ -53,13 +54,9 @@ def get_calendar_service():
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
         else:
-            flow = Flow.from_client_secrets_file(
-                GOOGLE_CLIENT_SECRETS_FILE,
-                scopes=SCOPES,
-                redirect_uri=url_for('oauth2callback', _external=True)
-            )
-            auth_url, _ = flow.authorization_url(prompt='consent')
-            return redirect(auth_url)
+            flow = InstalledAppFlow.from_client_secrets_file(
+                '../credentials.json', SCOPES)
+            creds = flow.run_local_server(port=0)
         # Save the credentials for the next run
         with open(TOKEN_PATH, 'wb') as token:
             pickle.dump(creds, token)
@@ -67,46 +64,52 @@ def get_calendar_service():
     return service
 
 @app.route('/events')
-def events():
-    creds = None
-    if os.path.exists(TOKEN_PATH):
-        with open(TOKEN_PATH, 'rb') as token:
-            creds = pickle.load(token)
-    if not creds or not creds.valid:
-        if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-        else:
-            flow = Flow.from_client_secrets_file(
-                GOOGLE_CLIENT_SECRETS_FILE,
-                scopes=SCOPES,
-                redirect_uri=url_for('oauth2callback', _external=True)
-            )
-            auth_url, _ = flow.authorization_url(prompt='consent')
-            return redirect(auth_url)
-        with open(TOKEN_PATH, 'wb') as token:
-            pickle.dump(creds, token)
-    service = build('calendar', 'v3', credentials=creds)
-    now = datetime.datetime.utcnow().isoformat() + 'Z'
+def get_events():
+    service = get_calendar_service()
+    # Get year and month from query params, default to current
+    year = request.args.get('year', type=int)
+    month = request.args.get('month', type=int)
+    now = datetime.datetime.utcnow()
+    if year and month:
+        start_of_month = datetime.datetime(year, month, 1)
+    else:
+        start_of_month = now.replace(day=1, hour=0, minute=0, second=0, microsecond=0)
+        year = start_of_month.year
+        month = start_of_month.month
+    if month == 12:
+        next_month = start_of_month.replace(year=year+1, month=1, day=1)
+    else:
+        next_month = start_of_month.replace(month=month+1, day=1)
+    time_min = start_of_month.isoformat() + 'Z'
+    time_max = next_month.isoformat() + 'Z'
     events_result = service.events().list(
-        calendarId='primary', timeMin=now,
-        maxResults=10, singleEvents=True,
-        orderBy='startTime'
+        calendarId='primary',
+        timeMin=time_min,
+        timeMax=time_max,
+        maxResults=100,
+        singleEvents=True,
     ).execute()
     events = events_result.get('items', [])
-    return jsonify({'events': events})
-
-@app.route('/oauth2callback')
-def oauth2callback():
-    flow = Flow.from_client_secrets_file(
-        GOOGLE_CLIENT_SECRETS_FILE,
-        scopes=SCOPES,
-        redirect_uri=url_for('oauth2callback', _external=True)
-    )
-    flow.fetch_token(authorization_response=request.url)
-    creds = flow.credentials
-    with open(TOKEN_PATH, 'wb') as token:
-        pickle.dump(creds, token)
-    return redirect(url_for('events'))
+    output = []
+    for event in events:
+        start_raw = event['start'].get('dateTime', event['start'].get('date'))
+        try:
+            if 'T' in start_raw:
+                dt = datetime.datetime.fromisoformat(start_raw.replace('Z', '+00:00'))
+                start_formatted = dt.strftime('%Y-%m-%d')
+            else:
+                dt = datetime.datetime.fromisoformat(start_raw)
+                start_formatted = dt.strftime('%Y-%m-%d')
+        except Exception:
+            start_formatted = start_raw
+        output.append({
+            'start': start_formatted,
+            'summary': event.get('summary', ''),
+            'location': event.get('location', ''),
+            'description': event.get('description', ''),
+            'htmlLink': event.get('htmlLink', '')
+        })
+    return jsonify(events=output)
 
 @app.route('/recurring-events')
 def get_recurring_events():
