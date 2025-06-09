@@ -202,7 +202,7 @@ def create_time_entry(event, integration):
         print(f"[SIMULATION] Creating time entry for '{event.get('summary')}' in {integration}")
     return True
 
-@app.route('/')
+@app.route('/index')
 def serve_index():
     return render_template('index.html')
 
