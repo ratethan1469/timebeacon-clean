@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "senku-calendar",
+  "private_key_id": "b2c2beb40b2cc324b3ec78b5d79e81fd65aa2c76",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDVMLAU1r3dbztz\npv4XFB5H1mk/OO3cxrealZ2hbkuhMIPKp48LBLFUC+4CwATCK2Juht5jMxoxACYD\n/glWfLz4N6nOPRhseY0NAi/k/llTHHhgwL4yySF+daZYWh+8PKCqBPgvFgQ8h8kB\nJy9A6TtnL88zCIVgYJlqjQNGDebN/kcJwO0HDnaC4TSiJ6U+BsWf1TUao9zLOc5Q\n/Eg7FZM8/L1eGNuukjXABKW9s3wH5rUJJHrFWpKqwwXeAU2voXZlD2jkDuvJGi9J\nOLAqTgaeTerNg+19psbb3avHGG9CTjrMOW7REHsmHl1Vbbrjrl+nqJBvn78FfGpw\ndo8lGlZ5AgMBAAECggEAL3nyAJYI/s7mX71M4RFZI/jfA9YW/J9hZILUsY5ZN9qQ\nwvj5LUQ8hGHKvaCK/r3AJCqTTGalOsvUa3evlyvcvm9Q+K2Y6pFQJNk7lsTA2jYh\nJbTOtosdkya6pnrdjeM3iV1lcsD1rRA1JnVWO9+k27glLbGEWF/y0mx4UenHIFDL\ny/VvhTQPRSHb8izHqdYvdycBKMzY/yB6ng1BCXbzPZnPUxnkdxShfzCnY+rHLyIr\nolRWCzELnXDN6LFTXjBEPS/8LF6no/vUAcLdh0BFAkSV3pZZYchFwqjOqelE1AB5\nXtL1iaQ0tSLPRAmpJzWupP/ZfzByCzX/eItEbN7tzQKBgQD1ylYRU87kEyzxz127\nmcuMk7zDOfoLmV8d+DFaEAJo1bACK5QvqdPImZkobkc3d8GA4jfsMkVyJCPpPYsn\nhhy7P9w5GXS0aJZq8scE8MvUeXuY7Io01oW6QE/ILhdWWsYgtqhenKlwccsdmbUi\ndfhTZXqPIbSR3cBHhcjaUm8aRQKBgQDeC7DNMRQW5jSzSva/yIi/LaauG0Qmu1DM\nW8tc6B5QPfJt7IpxDnJMi5qz70abQkExmZLy5/ExuYDy99FxNG5EagMSLT6makEx\nIsI1wgV/+ZmYfVq9F7pcmR+q1SXL9CI06ERLjAkEsNWV9ODVoTwpP/ce6qGhD3nA\nQBeset9IpQKBgQC4N1lAjV7QBCs4ZSIse/1aNFRSwf5NeTsX/DAI/1y+9AGB7uWW\nv6MygySOb/DCeug1z9b4GUmBXeLoai8EhXi9QwSsaw7UNFsgdyuA4XTzn8Vp/Ucs\niOgbix4Au8LT/x7l3+DbYHGCDFeerNhcpqxi3Pj5k9qBRQFa2cOLFiOdPQKBgCdL\njlhhzRpYVw87vvsls/2RSKQbMy5fi+b+f7jLY0H0FIkbiUyEr/mX4yLgv3AOg5cR\nhI30Oh0ApS9aZ/hOvQzibfSziRjOSQc3DYOR+IMzWtk/peU848ArYQ1Md0nmxH70\nc9Gi0J3B5aqKEZf81ra+GS+hekUUhgldzlK50/X5AoGBALQmsGrfISefqxosr5jC\nkZGRKCM13+4RiRzNf2mAWIZzMYjGmX6IiNKi3M9aISRDcJv/Q79Uo+A5F9Cw7zwP\nZF/SR4QbmibBGgrcVgcI0ce3pN/tlY4SF0jp/ihooKacoRLvm3Tm5jKoMSHbt2uv\nJwYzC7aA8WQMD5B3uLvdQJtm\n-----END PRIVATE KEY-----\n",
+  "client_email": "timebeacon-calendar@senku-calendar.iam.gserviceaccount.com",
+  "client_id": "116416687192599247392",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/timebeacon-calendar%40senku-calendar.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
